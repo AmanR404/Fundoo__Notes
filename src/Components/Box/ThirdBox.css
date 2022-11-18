@@ -1,0 +1,32 @@
+.thirdmainbox{
+        width: 18vw;
+        height: 20vh;
+        margin-left: -70vw;
+        margin-top: 45vh;
+        position: sticky;
+        top: 0vh;
+        border: 0.5px solid rgb(118, 116, 116);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        color: rgb(200, 196, 196);
+}
+.thirdinsidebox{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.5vh;
+}
+#insidebox{
+    display: flex;
+    flex-direction: column;
+    color: rgb(93, 91, 91);
+}
+.color{
+    color: rgb(93, 91, 91);
+}
+.thirdinnerbox{
+    padding: 3.2% 5.2%;
+}
+.thirdiconsbox span{
+    margin-right: 0.81vw;
+}

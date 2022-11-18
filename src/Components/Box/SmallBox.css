@@ -1,0 +1,89 @@
+.takenotebox{
+    border: 0.5px solid rgb(118, 116, 116);
+    border-radius: 6px;
+    position: relative;
+    right: 60vw;
+    top: 17vh;
+    height: 7.6vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+.note{
+    margin-left: 1.6vw;
+    width: 45vw;
+    color: rgb(93, 91, 91);
+}
+#takenoteinnerbox{
+    width: 15vw;
+}
+.check{
+    margin-right: 1.5vw;
+   color: rgb(93, 91, 91);
+}
+.disabledcheck{
+    margin-right: 1.5vw;
+    color: rgb(83, 82, 82);
+}
+.sideicons2{
+    color: rgb(200, 196, 196);
+}
+.secondbox{
+    border: 0.5px solid rgb(118, 116, 116);
+    border-radius: 6px;
+    color: rgb(200, 196, 196);
+    width: 48vw;
+    height: 25vh;
+    margin-top: 16vh;
+    margin-left: -63vw;
+}
+.close{
+    color: rgb(93, 91, 91);
+    display: inline-block;
+}
+.secondinnerbox{
+    padding: 2.5% 3%;
+}
+.titlebox{
+    display: flex;
+    justify-content: space-between;
+}
+#titleboxtitle{
+    margin-bottom: 4vh;
+    background-color: transparent;
+    border: none;
+    padding: 6px 10px;
+    color: rgb(234, 230, 230);
+}
+::-webkit-input-placeholder{
+    color: rgb(93, 91, 91);
+    font-size: medium;
+}
+.iconsbox{
+    display: flex;
+    justify-content: space-between;
+}
+.pushpin{
+    color: rgb(93, 91, 91);
+}
+.disabledicons2{
+    color: rgb(185, 183, 183);
+    margin-right: 2vw;
+}
+.check2{
+    margin-right: 2vw;
+    color: rgb(93, 91, 91);
+}
+#titleboxnote{
+    margin-bottom: 4vh;
+    background-color: transparent;
+    border: none;
+    color: rgb(234, 230, 230);
+    padding: 6px 10px;
+}
+.hover:hover{
+    cursor: pointer;
+}

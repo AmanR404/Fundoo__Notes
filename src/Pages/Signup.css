@@ -1,0 +1,131 @@
+#innerbox{
+    display: flex;
+    width: 50vw;
+    border: 0.4px solid rgb(183, 181, 181);
+    border-radius: 6px;
+    padding: 2vh 5vw 9vh 3vw
+}
+body{
+    background-color: white;
+}
+#internalBox{
+    display: flex;
+    flex-direction: column;
+}
+#firstimg{
+    margin-right: 85%;
+    
+}
+#firsttxt{
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
+}
+.holders{
+    padding: 9px 11px;
+    border: 0.4px solid rgb(202, 200, 200);
+    border-radius: 4px;
+}
+.smallholder{
+    width: 45%;
+}
+.move{
+    position: relative;
+    left: 4%;
+}
+.bigholder{
+    width: 94%;
+    position: relative;
+    top: 20%;
+    border: 0.4px solid rgb(196, 193, 193);
+    border-radius: 4px;
+}
+#bigholderdiv{
+    margin-top: 1vh;
+}
+.bigholderdiv span{
+    font-size: 0.7rem;
+}
+#middletext{
+    color: #1a73e8;
+    font-weight: 400;
+    margin-top: 4.5vh;
+    margin-bottom: 7vh;
+}
+#lastinnerbox{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+#lastinnerbox button{
+    background-color: #1a73e8;
+    color: white;
+    padding: 9px 24px;
+    border: 0.5px solid #1a73e8;
+    border-radius: 4px;
+    margin-right: 1.8vw;
+}
+#lastinnerbox span{
+    color: #1a73e8;
+    font-weight: 400;
+}
+#sidebox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+button{
+    cursor: pointer;
+}
+#sidebox img{
+   width: 60%;
+   height: 42%;
+   margin-bottom: 2vh;
+}
+#outersidebox{
+    width: 32.5vw;
+    
+}
+#section2{
+    display: flex;
+    justify-content: space-between;
+    width: 59vw;
+    margin-top: 4vh;
+}
+#sectionbox2 span{
+    margin: 0px 13px;
+    font-size: 0.8rem;
+}
+@media (min-width: 1100px) and (max-width: 1279px){
+    #sidebox img {
+        width: 62%;
+        height: 37%;
+    }
+}
+@media (min-width: 700px) and (max-width: 900px){
+    #innerbox {
+        width: 79vw;
+    }
+    #sidebox img {
+        width: 62%;
+        height: 22%;
+        margin-bottom: 0vh;
+    }
+}
+@media (min-width: 400px) and (max-width: 500px){
+    #innerbox {
+        display: block;
+        width: 84vw;
+        height: 70vh;
+    }
+    #sidebox{
+        display: none;
+    }
+    #internalBox {
+        margin-left: 4vw;
+    }
+    #section2 {
+        width: 79vw;
+    }
+}

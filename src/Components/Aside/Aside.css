@@ -1,0 +1,21 @@
+.iconsbox2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2vh 2vw;
+    color: rgb(93, 91, 91);
+}
+.textbox{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    justify-content: space-between;
+    color: rgb(93, 91, 91);
+    font-weight: 500;
+}
+.asidebox{
+    width: 25vw;
+    height: 40vh;
+    display: flex;
+}

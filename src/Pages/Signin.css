@@ -1,0 +1,137 @@
+#outerbox{
+    display: flex;
+    justify-content: center;
+    margin-top: 9vh;
+    flex-direction: column;
+    align-items: center;
+}
+.mainbox{
+    width: 35vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgb(190, 184, 184);
+    border-radius: 5px;
+}
+div img{
+    width: 8vw;
+    height: 17vh;
+    margin: 0px auto;
+    margin-bottom: -2vw;
+}
+#signintext{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1vh;
+}
+#signinbottomtext{
+    text-align: center;
+}
+.form{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 10%;
+}
+.form2{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 17%;
+}
+#forgot{
+    position: relative;
+    left: 10%;
+    top: 21%;
+    margin-top: 3.5vh;
+}
+#forgotbottombox{
+    position: relative;
+    left: 10%;
+    line-height: 20%;
+    margin-top: 16vh;
+    margin-bottom: 8vh;
+}
+#forgotbottombox p{
+    font-size: 0.9rem;
+}
+#lastbox{
+    position: relative;
+    left: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+#lastbox span,#boxp, #forgot{
+    color: #1a73e8;
+    font-weight: 500
+}
+#lastbox button{
+    background-color: #1a73e8;
+    color: white;
+    padding: 9px 24px;
+    border: 0.5px solid #1a73e8;
+    border-radius: 4px;
+    margin-right: 7.2vw;
+}
+button:hover{
+    cursor: pointer;
+}
+#section{
+    display: flex;
+    justify-content: space-between;
+    width: 35vw;
+    margin-top: 4vh;
+}
+#sectionbox span{
+ margin: 0px 13px;
+}
+#dropdown{
+    border: 0px solid white;
+}
+@media (min-width: 700px) and (max-width: 800px) {
+    div img {
+        width: 19vw;
+        height: 16vh;
+    }
+    .mainbox {
+        width: 68vw;
+        height: 66vh;
+        /* margin-left: 6vw; */
+    }
+    #lastbox button {
+        margin-right: 9.2vw;
+    }
+    #section {
+        width: 43vw;
+    }
+  }
+@media (min-width: 1100px) and (max-width: 1250px){
+    div img {
+        height: 14vh;
+    }
+    .mainbox {
+        height: 70vh;
+    }
+}
+@media (min-width: 400px) and (max-width: 580px){
+    .mainbox {
+        width: 116vw;
+        height: 79vh;
+        margin-left: 25vw;
+    }
+    div img {
+        width: 37vw;
+    }
+    #lastbox button {
+        margin-right: 23.2vw;
+    }
+    #forgotbottombox {
+        line-height: 86%;
+    }
+    #forgotbottombox p {
+        font-size: 1em;
+    }
+    #section {
+        width: 71vw;
+    }
+}
