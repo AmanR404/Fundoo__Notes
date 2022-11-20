@@ -1,15 +1,10 @@
 .thirdmainbox{
-        width: 18vw;
-        height: 20vh;
-        margin-left: -70vw;
-        margin-top: 45vh;
-        position: sticky;
-        top: 0vh;
+        position: relative;
+        left: 20vw;
+        display: inline-block;
         border: 0.5px solid rgb(118, 116, 116);
-        border-radius: 6px;
-        display: flex;
-        flex-direction: column;
-        color: rgb(200, 196, 196);
+        border-radius: 5px;
+        margin-right: 1vw;
 }
 .thirdinsidebox{
     display: flex;

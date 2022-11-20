@@ -6,6 +6,7 @@
     height: 8.5vh;
     display: flex;
     color: white;
+    width: 100vw;
 }
 .navigation img {
     width: 3.5vw;

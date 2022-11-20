@@ -1,29 +1,47 @@
 import React, { useState } from "react";
 import "./Signin.css";
 import TextField from "@mui/material/TextField";
-import axios from "axios";
+import { SignInApi } from "./Services/Userservices";
+import { useNavigate } from "react-router-dom";
 
 function Signin() {
-  const[signinData, setsigninData] = useState({
+  const[signinObj, setsigninObj] = useState({
     email : "",
     password : ""
   })
 
-  const email = signinData.email
-  const password = signinData.password
+  const email = signinObj.email
+  const password = signinObj.password
 // Regex
   const emailPattern = /^[A-Za-z0-9]+[/@]*[a-zA-Z]*[/.]*[a-zA-Z]*$/;
   const passPattern = /^[A-Za-z0-9/./@/_/-]{8,}/
 
+  const navigate = useNavigate()
+
+  const submit = (e)=>{
+    e.preventDefault();
+    if((email.match(emailPattern)) && (password.match(passPattern))){
+      SignInApi(signinObj)  
+      .then((resp) => {localStorage.setItem('token',resp.data.id); console.log(resp); if(resp.status == 200){
+        navigate("/dashboard")
+      }})
+      .catch((error) =>{console.log(error)} )
+    }
+    else{
+      console.log("Type Details correctly")
+      borderHandler();
+    }
+  }
+
   const borderHandler = ()=>{
-    if(!email || !(email.match(emailPattern))){
+    if(!email){
       document.querySelector(".upperinput").style.border = "1.5px solid red";
       document.querySelector(".upperinput").style.borderRadius = "4px";
       setTimeout(() => {
         document.querySelector(".upperinput").style.border = "1px solid grey";
       }, 5000);
     }
-    if(!password || !(password.match(passPattern))){
+    if(!password){
       document.querySelector(".lowerinput").style.border = "1.5px solid red";
       document.querySelector(".lowerinput").style.borderRadius = "4px";
       setTimeout(() => {
@@ -34,29 +52,19 @@ function Signin() {
   }
 
   const handleChangeEmail = (event) => {
-    setsigninData(prevState => ({
+    setsigninObj(prevState => ({
       ...prevState,
       email : event.target.value
       }))
   }
 
   let handleChangePassword = (event) => {
-    setsigninData(prevState => ({
+    setsigninObj(prevState => ({
       ...prevState,
       password : event.target.value
   }))
   }
 
-  const signinHandler = (e) => {
-    e.preventDefault();
-    axios.post("http://fundoonotes.incubation.bridgelabz.com/api/user/login", signinData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   return (
     <div id="outerbox">
       <div className="mainbox">
@@ -66,7 +74,7 @@ function Signin() {
         />
         <span id="signintext">Sign in</span>
         <span id="signinbottomtext">Use your Google Account</span>
-        <form onSubmit={signinHandler}>
+        <form>
           <TextField
             id="outlined-basic"
             className="form upperinput"
@@ -92,7 +100,7 @@ function Signin() {
         <div id="lastbox">
           <span>Create account</span>
           <button
-            type="submit" onClick={()=>{ borderHandler();{console.log(signinData)}}}>Next
+            type="submit" onClick={submit}>Next
           </button>
         </div>
         </form>
@@ -114,6 +122,5 @@ function Signin() {
       </section>
     </div>
   );
-}
-
+  }
 export default Signin;

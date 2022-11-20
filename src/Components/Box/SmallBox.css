@@ -2,7 +2,7 @@
     border: 0.5px solid rgb(118, 116, 116);
     border-radius: 6px;
     position: relative;
-    right: 60vw;
+    right: 64vw;
     top: 17vh;
     height: 7.6vh;
     width: 45vw;
@@ -12,6 +12,20 @@
     justify-content: space-between;
     align-items: center;
 }
+/* .takenotebox{
+    border: 0.5px solid rgb(118, 116, 116);
+    border-radius: 6px;
+    position: relative;
+    bottom: 32vh;
+    left: 33vw;
+    height: 7.6vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+} */
 .note{
     margin-left: 1.6vw;
     width: 45vw;
@@ -40,6 +54,17 @@
     margin-top: 16vh;
     margin-left: -63vw;
 }
+/* .secondbox{
+    border: 0.5px solid rgb(118, 116, 116);
+    border-radius: 6px;
+    color: rgb(200, 196, 196);
+    width: 48vw;
+    height: 25vh;
+    position: relative;
+    bottom: 28vh;
+    left: 32vw;
+    display: inline-block;
+} */
 .close{
     color: rgb(93, 91, 91);
     display: inline-block;

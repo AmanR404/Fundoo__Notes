@@ -8,6 +8,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Dashboard from './Components/Dashboard';
+
 
 function App() {
   return (
@@ -16,10 +18,13 @@ function App() {
     <Routes>
     <Route exact path='/Signin' element={ <Signin/>} />
     <Route exact path='/' element={ <Signup/>} />
-    <Route exact path='/dashboard' element={  <div id='appcomponent'>
-                                                  <Aside/>
-                                                  <SmallBox/>
-                                                </div>} />  
+    <Route exact path='/dashboard' element={ <div id='appcomponent'>
+                                                <div id='upper'>
+                                                                <Aside/>
+                                                                <SmallBox/>
+                                                </div>
+                                            <Dashboard/>
+                                          </div>} />  
         </Routes>
     </div>
     </BrowserRouter>

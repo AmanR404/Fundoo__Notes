@@ -2,8 +2,30 @@ import React from 'react'
 import './Aside.css'
 import { useState } from 'react'
 import Header from '../Header/Header'
+import { getNoteList } from '../../Pages/Services/DataServices'
+import Archivenotes from '../ArchiveNotes/Archivenotes'
 
 function Aside() {
+  const[archivedNotes, setarchivedNotes] = useState([])
+
+  // Getting Notes
+  const GetNotes= () => {  
+    getNoteList().then((resp)=>{
+        setarchivedNotes(resp.data.data.data)
+    })  
+    .catch((error)=>{console.log(error)})     
+  }
+  React.useEffect(() => {GetNotes()}, []) 
+
+  const noteSender = ()=>{
+    if(archivedNotes.isArchived = true){
+      setSender(true)
+    }
+  }
+  const noteCloser = ()=>{
+    setSender(false)
+  }
+const [sender, setSender] = useState(false)
 const[menuOptions, setmenuOptions] = useState(false)
 const [text, setText] = useState("Keep")
 
@@ -34,29 +56,32 @@ const trashChanger = ()=>{
           <Header toggler={toggleMenu} text={text}/>
               <div className='asidebox'>
                 <div className='iconsbox2'>
-                    <span class="material-symbols-outlined ">
+                    <span className="material-symbols-outlined ">
                             lightbulb
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                           notifications
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                           edit
                     </span>
                     <span className="material-symbols-outlined sideicons2 check2 hover">
                               system_update_alt
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                               delete
                     </span>
                 </div>
                 <div className='textbox'>
-                  <span onClick={notesChanger} className="hover">Notes</span>
+                  <span onClick={() => { notesChanger(); noteCloser();}} className="hover">Notes</span>
                   <span onClick={reminderChanger} className="hover">Reminders</span>
                   <span className="hover">Edit labels</span>
-                  <span onClick={archiveChanger} className="hover">Archive</span>
+                  <span onClick={() => { archiveChanger(); noteSender();}} className="hover">Archive</span>
                   <span onClick={trashChanger} className="hover">Trash</span>
                 </div>
+                {sender?archivedNotes.map(archivedNotes => (
+                    <Archivenotes archivedNotes={archivedNotes} key={archivedNotes.title}  />
+                )):null}
             </div>
         </div>
         )
@@ -67,19 +92,19 @@ const trashChanger = ()=>{
        <Header toggler={toggleMenu}/>
           <div className='asidebox'>
             <div className='iconsbox2'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                         lightbulb
                 </span>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                       notifications
                 </span>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                       edit
                 </span>
                 <span className="material-symbols-outlined sideicons2 check2 hover">
                           system_update_alt
                 </span>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                           delete
                 </span>
             </div>

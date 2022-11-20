@@ -1,34 +1,56 @@
 import React from 'react'
 import './SmallBox.css'
 import { useState } from 'react';
-import ThirdBox from './ThirdBox';
+import { addNote } from '../../Pages/Services/DataServices';
 
 function SmallBox() {
   const [myVar, setmyVar] = useState(false);
-  const [title, settitle] = useState("")
-  const [note, setnote]    = useState("")
+  const [notesObj, setnotesObj] = useState({
+    title : "",
+    description : "",
+    isArchived: false,
+    color: ""
+  })
 
-  const[saver, setSaver]  = useState(false)
+  const title = notesObj.title;
+  const note = notesObj.description;
 
-  const noteSaver = ()=>{
-    setSaver(true)
-  }
   const takenoteCloser = ()=>{
     setmyVar(false)
   }
 
+  const noteCreator = ()=>{
+    addNote(notesObj)
+    .then((resp) => {console.log(resp);})
+    .catch((error) =>{console.log(error)})
+  }
+
   function clickBody() {
     if(title==="" && note===""){
-      console.log("")
+      console.log("Note cannot be Blank")
     }
     else{
       setTimeout(() => {
-        setSaver(true)
         setmyVar(false)
+        noteCreator()
       }, 4000);
     }
 }
-  document.body.addEventListener("click", clickBody)
+
+let handleChangeTitle = (event) => {
+  setnotesObj(prevState => ({
+    ...prevState,
+    title : event.target.value
+}))
+}
+
+let handleChangeDescription = (event) => {
+  setnotesObj(prevState => ({
+    ...prevState,
+    description : event.target.value
+}))
+}
+  // document.body.addEventListener("click", clickBody)
 
   if(myVar){
       return(
@@ -36,16 +58,12 @@ function SmallBox() {
         <div className='secondbox'>
            <div className='secondinnerbox'>
             <div className='titlebox'>
-                <input type="text" id="titleboxtitle" value={title} placeholder="Title" onChange={(event)=>{
-                  settitle(event.target.value)
-                }}/>
+                <input type="text" id="titleboxtitle" value={title} placeholder="Title" onChange={handleChangeTitle}/>
                 <span className="material-symbols-outlined hover pushpin">
                   push_pin
                 </span>
               </div>
-              <input type="text" value={note} id="titleboxnote" placeholder="Take a note..." onChange={event =>{
-                setnote(event.target.value)
-              }} />
+              <input type="text" value={note} id="titleboxnote" placeholder="Take a note..." onChange={handleChangeDescription} />
               <div className='iconsbox'>
                 <div>
                   <span className="material-symbols-outlined sideicons2 check2 hover">
@@ -73,11 +91,10 @@ function SmallBox() {
                   redo
                   </span>
                 </div>
-                <span className='hover close' onClick={() => { takenoteCloser(); noteSaver();}}>Close</span>
+                <span className='hover close' onClick={() => { takenoteCloser(); noteCreator()}}>Close</span>
               </div>
            </div>
            </div>
-           {saver? <ThirdBox title={title} note={note}/> : null}
       </div>)
   }
   else{
@@ -99,7 +116,6 @@ function SmallBox() {
               </span>
           </div>
       </div>
-      {saver? <ThirdBox title={title} note={note}/> : null}
       </div>
     )
   }

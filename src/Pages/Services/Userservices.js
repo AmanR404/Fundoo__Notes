@@ -5,7 +5,7 @@ export const SignUpApi = (SignupObj) => {
     return response;
 }
 
-export const SignIn = (SigninObj) => {
+export const SignInApi = (SigninObj) => {
     let response = axios.post("http://fundoonotes.incubation.bridgelabz.com/api/user/login",SigninObj)
     return response;
 }

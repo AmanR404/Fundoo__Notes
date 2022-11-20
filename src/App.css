@@ -20,6 +20,11 @@ body {
 }
 #appcomponent{
   display: flex;
+  flex-direction: column;
 }
+#upper{
+  display: flex;
+}
+
 
 
