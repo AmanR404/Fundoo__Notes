@@ -5,6 +5,7 @@ import ThirdBox from './Box/ThirdBox'
 
 function Dashboard() {
 
+
     const [notes, setNotes] = useState([])
     console.log(notes)
     const GetNotes= () => {  
@@ -14,11 +15,11 @@ function Dashboard() {
         })  
         .catch((error)=>{console.log(error)})     
       }
-      React.useEffect(() => {GetNotes()}, []) 
+      React.useEffect(() => {GetNotes();}, []) 
 
   return (
     <div>
-       { notes.map(notes => (
+       {notes.map(notes => (
             <ThirdBox notes={notes} key={notes.title}/>
         ))}
     </div>

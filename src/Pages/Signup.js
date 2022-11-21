@@ -137,7 +137,7 @@ function Signup() {
                 <label>&nbsp;Show Password</label>
             </div>
             <div id='lastinnerbox'>
-                <span>Sign in instead</span>
+                <span className='hover' onClick={()=>navigate("/Signin")}>Sign in instead</span>
                 <button type='submit' onClick={submit}>Next</button>
             </div>
                </form>

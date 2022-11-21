@@ -1,0 +1,27 @@
+.button{
+    width: 2vw;
+    margin-right: 0.39vw;
+    margin-left: 0.5vw;
+    margin-top: 0.39vh;
+    height: 4vh;
+    border: 0px solid white;
+    border-radius: 300px;
+}
+#btn1{
+    background-color: yellow;
+}
+#btn2{
+    background-color: rgb(235, 73, 73);
+}
+#btn3{
+    background-color: rgb(139, 139, 241);
+}
+#btn4{
+    background-color: burlywood;
+}
+#btn5{
+    background-color: rgb(96, 38, 38);
+}
+#btn6{
+    background-color: rgb(44, 120, 44);
+}
