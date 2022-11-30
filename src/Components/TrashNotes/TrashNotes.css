@@ -1,0 +1,9 @@
+#archNotes{
+    width: 100vw;
+    height: 100vh;
+    padding: 55px;
+    z-index: 1;
+    background-color: white;
+    position: relative;
+    top: 30vh;
+}

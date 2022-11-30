@@ -81,10 +81,10 @@
     background-color: transparent;
     border: none;
     padding: 6px 10px;
-    color: rgb(234, 230, 230);
+    color: rgb(23, 22, 22);
 }
 ::-webkit-input-placeholder{
-    color: rgb(93, 91, 91);
+    color: rgb(70, 68, 68);
     font-size: medium;
 }
 .iconsbox{
@@ -106,7 +106,7 @@
     margin-bottom: 4vh;
     background-color: transparent;
     border: none;
-    color: rgb(234, 230, 230);
+    color: rgb(23, 22, 22);
     padding: 6px 10px;
 }
 .hover:hover{

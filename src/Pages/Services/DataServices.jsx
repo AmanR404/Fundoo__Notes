@@ -20,3 +20,7 @@ export const trashedNote = (noteObj) => {
     let res = axios.post("http://fundoonotes.incubation.bridgelabz.com/api/notes/trashNotes", noteObj, headerConfig)
     return res;
 }
+export const updateNote = (noteObj) => {
+    let res = axios.post("http://fundoonotes.incubation.bridgelabz.com/api/notes/updateNotes", noteObj, headerConfig)
+    return res;
+}

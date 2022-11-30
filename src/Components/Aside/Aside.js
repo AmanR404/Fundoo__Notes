@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '../Header/Header'
 import { getNoteList } from '../../Pages/Services/DataServices'
 import Archivenotes from '../ArchiveNotes/Archivenotes'
+import TrashNotes from '../TrashNotes/TrashNotes'
 
 function Aside() {
   const[archivedNotes, setarchivedNotes] = useState([])
@@ -22,10 +23,19 @@ function Aside() {
       setSender(true)
     }
   }
+  const trashnoteSender = ()=>{
+    if(archivedNotes.isDeleted = true){
+      settrashSender(true)
+    }
+  }
   const noteCloser = ()=>{
     setSender(false)
   }
+  const trashCloser = ()=>{
+    settrashSender(false)
+  }
 const [sender, setSender] = useState(false)
+const [trashsender, settrashSender] = useState(false)
 const[menuOptions, setmenuOptions] = useState(false)
 const [text, setText] = useState("Keep")
 
@@ -73,14 +83,17 @@ const trashChanger = ()=>{
                     </span>
                 </div>
                 <div className='textbox'>
-                  <span onClick={() => { notesChanger(); noteCloser();}} className="hover">Notes</span>
+                  <span onClick={() => { notesChanger(); noteCloser(); trashCloser();}} className="hover">Notes</span>
                   <span onClick={reminderChanger} className="hover">Reminders</span>
                   <span className="hover">Edit labels</span>
                   <span onClick={() => { archiveChanger(); noteSender();}} className="hover">Archive</span>
-                  <span onClick={trashChanger} className="hover">Trash</span>
+                  <span onClick={() => { trashChanger(); trashnoteSender();}} className="hover">Trash</span>
                 </div>
                 {sender?archivedNotes.map(archivedNotes => (
                     <Archivenotes archivedNotes={archivedNotes} key={archivedNotes.title}  />
+                )):null}
+                {trashsender?archivedNotes.map(archivedNotes => (
+                    <TrashNotes trashedNotes={archivedNotes} key={archivedNotes.title}  />
                 )):null}
             </div>
         </div>

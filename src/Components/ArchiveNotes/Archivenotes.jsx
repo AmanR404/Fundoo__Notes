@@ -9,12 +9,8 @@ function Archivenotes(props) {
     <div id='archNotes'>
         <Card sx={{ maxWidth: 500 }}>
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                {props.archivedNotes.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                {props.archivedNotes.description}
-                </Typography>
+            <input type="text" id="thirdboxtitle" value={props.archivedNotes.title} placeholder="Title"/>
+            <input type="text" id="thirdboxtitle" value={props.archivedNotes.description} placeholder="Title"/>
             </CardContent>
         </Card>
     </div>

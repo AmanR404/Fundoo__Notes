@@ -1,6 +1,6 @@
 .thirdmainbox{
         position: relative;
-        left: 20vw;
+        left: 24vw;
         display: inline-block;
         border: 0.5px solid rgb(118, 116, 116);
         border-radius: 5px;
@@ -11,6 +11,7 @@
     justify-content: space-between;
     margin-bottom: 4.5vh;
 }
+
 #insidebox{
     display: flex;
     flex-direction: column;
@@ -35,20 +36,29 @@
     border-radius: 300px;
 }
 #btn1{
-    background-color: rgb(241, 241, 51);
+    background-color: #2ECC71;
 }
 #btn2{
-    background-color: rgb(194, 65, 65);
+    background-color: #F1948A;
 }
 #btn3{
-    background-color: rgb(139, 139, 241);
+    background-color: #AAB7B8;
 }
 #btn4{
-    background-color: burlywood;
+    background-color: #F5B7B1;
 }
 #btn5{
-    background-color: rgb(87, 45, 45);
+    background-color: #F5B041;
 }
 #btn6{
-    background-color: rgb(83, 151, 83);
+    background-color: #F1948A;
+}
+.card{
+    width: 18vw;
+}
+#thirdboxtitle{
+    background-color: transparent;
+    border: none;
+    padding: 6px 10px;
+    font-size: medium;
 }

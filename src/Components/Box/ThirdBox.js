@@ -4,14 +4,47 @@ import { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import { updateArchiveNote } from '../../Pages/Services/DataServices';
 import { trashedNote } from '../../Pages/Services/DataServices';
+import { updateNote } from '../../Pages/Services/DataServices';
+
 
 function ThirdBox(props) {
 
   const[visible, setvisibility] = useState(true)
   const [opener, setOpener] = useState(false)
+  const [inputValues, setInputValues] = useState({
+    noteIdList: props.notes.id,
+    title : props.notes.title,
+    description : props.notes.description
+  })
+
+  // updateNote
+  const updateTitle = (event) => {
+    setInputValues((prevState) => ({
+      ...prevState,
+      title: event.target.value,
+    }));
+  };
+
+  const updateDescription = (event) => {
+    setInputValues((prevState) => ({
+      ...prevState,
+      description: event.target.value,
+    }));
+  };
+
+  const updateNoteValue = () => {
+    updateNote(inputValues)
+      .then((res) => {
+        console.log(res);
+        console.log("Note updated..");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // setOpen(false);
+  };
 
   // Archiver
   const updateArchive = (id) => {
@@ -54,34 +87,30 @@ function ThirdBox(props) {
       }, 8000);
   }
   const yellowColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "rgb(241, 241, 51)"
+    document.querySelector('.card').style.backgroundColor = "#2ECC71"
   }
   const redColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "rgb(194, 65, 65)"
+    document.querySelector('.card').style.backgroundColor = "#F1948A"
   }
   const blueColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "rgb(139, 139, 241)"
+    document.querySelector('.card').style.backgroundColor = "#AAB7B8"
   }
   const burlyColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "burlywood"
+    document.querySelector('.card').style.backgroundColor = "#F5B7B1"
   }
   const brownColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "rgb(87, 45, 45)"
+    document.querySelector('.card').style.backgroundColor = "#F5B041"
   }
   const greenColorChanger = ()=>{
-    document.querySelector('.card').style.backgroundColor = "rgb(83, 151, 83)"
+    document.querySelector('.card').style.backgroundColor = "#F1948A"
   }
 
   if(visible){ return (
     <div className='thirdmainbox'>
-        <Card className='card' sx={{ maxWidth: 345 }}>
+        <Card className='card'>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-            {props.notes.title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            {props.notes.description}
-            </Typography>
+          <input type="text" id="thirdboxtitle" value={inputValues.title} placeholder="Title" onChange={updateTitle}/>
+          <input type="text" id="thirdboxtitle" value={inputValues.description} placeholder="Description" onChange={updateDescription}/>
           </CardContent>
           <CardActions>
           <div className='thirdiconsbox'>
@@ -100,8 +129,8 @@ function ThirdBox(props) {
                     <span onClick={()=>onTrashNote(props.notes.id)} className="material-symbols-outlined hover color" >
                     delete
                     </span>
-                    <span className="material-symbols-outlined hover color">
-                    more_vert
+                    <span onClick={()=>updateNoteValue()} className="material-symbols-outlined hover color">
+                    check_circle
                     </span>
             </div>
           </CardActions>

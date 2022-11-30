@@ -9,7 +9,9 @@ import {
   Route
 } from "react-router-dom";
 import Dashboard from './Components/Dashboard';
+import ReactModal from 'react-modal';
 
+ReactModal.setAppElement('#root')
 
 function App() {
   return (
